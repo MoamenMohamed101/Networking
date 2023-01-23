@@ -20,7 +20,7 @@ class _LessonTwoState extends State<LessonTwo> {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => AddAuthor(),
+              builder: (context) => const AddAuthor(),
             ),
           );
         },
