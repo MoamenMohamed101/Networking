@@ -1,14 +1,14 @@
 // num 2
-class Post {
+class PostData {
   int? userId;
   int? id;
   String? title;
   String? body;
 
-  Post({this.userId, this.id, this.title, this.body});
+  PostData({this.userId, this.id, this.title, this.body});
 
-  factory Post.fromJson(Map<String, dynamic> jjson) {
-    return Post(
+  factory PostData.fromJson(Map<String, dynamic> jjson) {
+    return PostData(
       userId: jjson['userId'],
       id: jjson['id'],
       title: jjson['title'],
