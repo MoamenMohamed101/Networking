@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:networking/componants.dart';
 import 'package:networking/lesson%202/api.dart';
-
-class AddAuthor extends StatefulWidget {
-  const AddAuthor({super.key});
+import 'register_screen.dart';
+class LoginScreen extends StatefulWidget {
+  const LoginScreen({super.key});
 
   @override
-  State<AddAuthor> createState() => _AddAuthorState();
+  State<LoginScreen> createState() => _LoginScreenState();
 }
 
-class _AddAuthorState extends State<AddAuthor> {
+class _LoginScreenState extends State<LoginScreen> {
   String? authorName;
   var emailController = TextEditingController();
   var passwordController = TextEditingController();
@@ -59,14 +59,37 @@ class _AddAuthorState extends State<AddAuthor> {
                 height: 20,
               ),
               defaultButton(
-                  voidCallback: () {
-                    if (formKey.currentState!.validate()) {
-                      Api.userLogin(
-                          emailController.text, passwordController.text);
-                    }
-                  },
-                  text: 'Login',
-                  width: double.infinity)
+                voidCallback: () {
+                  if (formKey.currentState!.validate()) {
+                    Api.userLogin(
+                      emailController.text,
+                      passwordController.text,
+                    );
+                  }
+                },
+                text: 'Login',
+                width: double.infinity,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const Text(
+                    'Don\'t have an account ?',
+                    style: TextStyle(color: Colors.black),
+                  ),
+                  TextButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const RegisterScreen(),
+                        ),
+                      );
+                    },
+                    child: const Text('Register'),
+                  ),
+                ],
+              )
             ],
           ),
         ),

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:networking/lesson%202/add_auth.dart';
+import 'package:networking/lesson%202/login_screen.dart';
 
 class LessonTwo extends StatefulWidget {
   const LessonTwo({Key? key}) : super(key: key);
@@ -20,7 +20,7 @@ class _LessonTwoState extends State<LessonTwo> {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => const AddAuthor(),
+              builder: (context) => const LoginScreen(),
             ),
           );
         },
