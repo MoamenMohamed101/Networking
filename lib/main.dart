@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:networking/lesson%202/login_screen.dart';
-import 'package:networking/lesson%202/screen.dart';
+import 'package:networking/lesson%202%20(post)/screen.dart';
 
 void main() {
   runApp(
     const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: LoginScreen(),
+      home: LessonTwo(),
     ),
   );
 }
-

@@ -1,26 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:networking/componants.dart';
-import 'package:networking/lesson%202/api.dart';
-
-class RegisterScreen extends StatefulWidget {
-  const RegisterScreen({super.key});
+import 'package:networking/helpoo_project/api.dart';
+import 'package:networking/helpoo_project/register_screen.dart';
+class LoginScreen extends StatefulWidget {
+  const LoginScreen({super.key});
 
   @override
-  State<RegisterScreen> createState() => _RegisterScreenState();
+  State<LoginScreen> createState() => _LoginScreenState();
 }
 
-class _RegisterScreenState extends State<RegisterScreen> {
+class _LoginScreenState extends State<LoginScreen> {
   String? authorName;
   var emailController = TextEditingController();
   var passwordController = TextEditingController();
-  var nameController = TextEditingController();
-  var phoneController = TextEditingController();
   var formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        title: const Text('Next Author'),
+      ),
       body: Form(
         key: formKey,
         child: Padding(
@@ -58,49 +58,40 @@ class _RegisterScreenState extends State<RegisterScreen> {
               const SizedBox(
                 height: 20,
               ),
-              defaultFormField(
-                controller: nameController,
-                keyboard: TextInputType.name,
-                validator: (value) {
-                  if (value!.isEmpty) {
-                    return 'please enter your name';
-                  }
-                  return null;
-                },
-                text: 'name',
-                prefixIcon: Icons.person,
-              ),
-              const SizedBox(
-                height: 20,
-              ),
-              defaultFormField(
-                controller: phoneController,
-                keyboard: TextInputType.phone,
-                validator: (value) {
-                  if (value!.isEmpty) {
-                    return 'please enter your phone';
-                  }
-                  return null;
-                },
-                text: 'phone',
-                prefixIcon: Icons.phone,
-              ),
-              const SizedBox(
-                height: 20,
-              ),
               defaultButton(
                 voidCallback: () {
-                  if (formKey.currentState!.validate()) {
-                    Api.userRegister(
+                  setState(() {
+                    if (formKey.currentState!.validate()) {
+                      Api.userLogin(
                         emailController.text,
                         passwordController.text,
-                        nameController.text,
-                        phoneController.text);
-                  }
+                      );
+                    }
+                  });
                 },
-                text: 'Register',
+                text: 'Login',
                 width: double.infinity,
               ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const Text(
+                    'Don\'t have an account ?',
+                    style: TextStyle(color: Colors.black),
+                  ),
+                  TextButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const RegisterScreen(),
+                        ),
+                      );
+                    },
+                    child: const Text('Register'),
+                  ),
+                ],
+              )
             ],
           ),
         ),
