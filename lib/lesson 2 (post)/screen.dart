@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:networking/helpoo_project/login_screen.dart';
-
+import 'package:networking/lesson 2 (post)/add_author.dart';
 class LessonTwo extends StatefulWidget {
   const LessonTwo({Key? key}) : super(key: key);
 
@@ -20,7 +19,7 @@ class _LessonTwoState extends State<LessonTwo> {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => const LoginScreen(),
+              builder: (context) => const AddAuthor(),
             ),
           );
         },

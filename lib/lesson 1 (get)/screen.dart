@@ -1,8 +1,8 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import 'package:networking/lesson%201/model.dart';
 import 'package:http/http.dart' as http;
+import 'package:networking/lesson%201%20(get)/model.dart';
 
 class LessonOne extends StatefulWidget {
   const LessonOne({Key? key}) : super(key: key);
