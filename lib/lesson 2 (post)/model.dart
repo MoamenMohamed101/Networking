@@ -1,10 +1,8 @@
-import 'package:flutter/cupertino.dart';
-
 class Author {
-  String? userId;
-  String? id;
-  String? title;
-  String? body;
+  var userId;
+  var id;
+  var title;
+  var body;
 
   Author({
     this.userId,
@@ -15,7 +13,7 @@ class Author {
 
   factory Author.fromJson(Map<String, dynamic> json) {
     return Author(
-      userId: json['userId'],
+      userId: json['userId'].toString(),
       id: json['id'].toString(),
       title: json['title'],
       body: json['body'],

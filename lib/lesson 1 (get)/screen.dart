@@ -23,7 +23,7 @@ class _LessonOneState extends State<LessonOne> {
   // num 1
   Future<PostData> getPostById() async {
     http.Response futurePost = await http.get(
-      Uri.parse('https://jsonplaceholder.typicode.com/posts/1'),
+      Uri.parse('https://jsonplaceholder.typicode.com/posts'),
     );
     if (futurePost.statusCode == 200) {
       // decode :  to change String to json
