@@ -48,4 +48,35 @@ class Api {
       throw Exception('Error');
     }
   }
+
+  static Future<Response>? deleteAuthor(var index) async {
+    final Response response = await delete(
+      Uri.parse('$baseUrl/posts/$index'),
+      headers: <String, String>{
+        'Content-Type': 'application/json;charset=UTF-8'
+      },
+    );
+    if (response.statusCode == 200) {
+      print(response.body);
+      return response;
+    } else {
+      throw Exception('Error');
+    }
+  }
+
+  static Future<Response>? updateAuthor(Author author) async {
+    final Response response = await put(
+        Uri.parse('$baseUrl/posts/${author.id}'),
+        headers: <String, String>{
+          'Content-Type': 'application/json;charset=UTF-8'
+        },
+        body: jsonEncode(author.toJson()));
+    if (response.statusCode == 200) {
+      print(response.body);
+      print('Done');
+      return response;
+    } else {
+      throw Exception('Error');
+    }
+  }
 }

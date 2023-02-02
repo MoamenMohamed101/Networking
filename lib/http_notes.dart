@@ -19,4 +19,8 @@
 //2- get method don't need headers or body
 //3- make test on method call it in initState
 //4- parse json in to list of object num2
-//5- Get data in screen by use future builder use in it ListTile(title , subtitle)
+//5- Get data in screen by use future builder use in it ListTile(title , subtitle , onTap)
+
+// 5) delete data from api :-
+
+// 6)
